@@ -1,9 +1,10 @@
 import React from 'react'
+import { item } from "../Types/Types";
 
 const CartContext = React.createContext({
-  items: [],
+  items: [] as item[],
   totalAmount: 0,
-  addItem: () => {},
+  addItem: (item: any) => {},
   removeItem: (id: string) => {}
 })
 
