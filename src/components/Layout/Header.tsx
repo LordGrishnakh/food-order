@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
-import mealsImage from "../../assets/meals.jpg"
-import HeaderCartButton from './HeaderCartButton';
+import mealsImage from "../../assets/meals.jpg";
+import HeaderCartButton from "./HeaderCartButton";
 
 import classes from "./Header.module.css";
 
-const Header: React.FC<{ onShowCart: ()=>void }> = (props) => {
+const Header: React.FC<{ onShowCart: () => void }> = (props) => {
   return (
     <>
       <header className={classes.header}>
@@ -13,10 +13,10 @@ const Header: React.FC<{ onShowCart: ()=>void }> = (props) => {
         <HeaderCartButton onShowCart={props.onShowCart} />
       </header>
       <div className={classes["main-image"]}>
-        <img src={mealsImage} alt="background meal"/>
+        <img src={mealsImage} alt="background meal" />
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

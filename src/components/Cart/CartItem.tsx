@@ -7,7 +7,7 @@ type cartItemProps = {
   amount: number;
   onRemove: (id: string) => void;
   onAdd: (item: item) => void;
-  item: item
+  item: item;
 };
 
 const CartItem: React.FC<cartItemProps> = (props) => {
