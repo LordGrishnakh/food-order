@@ -6,23 +6,24 @@ import CartItem from "./CartItem";
 import { item } from "../../Types/Types";
 
 const Cart: React.FC<{ onHideCart: () => void }> = (props) => {
-  const { items, totalAmount: total } = useContext(cartCTX);
+  const { items, totalAmount: total, addItem, removeItem } = useContext(cartCTX);
 
   const totalAmount = `$${total.toFixed(2)}`;
   const hasItems = items.length > 0;
 
   const cartItemRemoveHandler = (id: string) => {
-
+    removeItem(id)
   }
 
   const cartItemAddHandler = (item: item) => {
-
+    addItem({ ...item, amount: 1 })
   }
 
   const cartItems = (
     <ul className={classes["cart-items"]}>
       {items.map((item) => (
         <CartItem
+          item={item}
           key={item.id}
           name={item.name}
           amount={item.amount}

@@ -1,19 +1,20 @@
-import { item } from '../../Types/Types';
-import classes from './CartItem.module.css';
+import { item } from "../../Types/Types";
+import classes from "./CartItem.module.css";
 
 type cartItemProps = {
   price: number;
   name: string;
   amount: number;
-  onRemove: (id: string)=>void;
-  onAdd: (item: item)=>void
-}
+  onRemove: (id: string) => void;
+  onAdd: (item: item) => void;
+  item: item
+};
 
 const CartItem: React.FC<cartItemProps> = (props) => {
   const price = `$${props.price.toFixed(2)}`;
 
   return (
-    <li className={classes['cart-item']}>
+    <li className={classes["cart-item"]}>
       <div>
         <h2>{props.name}</h2>
         <div className={classes.summary}>
@@ -22,8 +23,8 @@ const CartItem: React.FC<cartItemProps> = (props) => {
         </div>
       </div>
       <div className={classes.actions}>
-        <button onClick={()=>props.onRemove}>−</button>
-        <button onClick={()=>props.onAdd}>+</button>
+        <button onClick={() => props.onRemove(props.item.id)}>−</button>
+        <button onClick={() => props.onAdd(props.item)}>+</button>
       </div>
     </li>
   );
